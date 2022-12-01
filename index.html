@@ -123,8 +123,11 @@
       }
     </style>
   </head>
-  <body>
+  <body oncontextmenu="return false">
     <!-- Form-->
+    <center class="">
+      <p id="errorOrTrue"></p>
+    </center>
     <div class="login-wrap">  
       <div class="form hidden">
         <h2 class="mb-4">Login</h2>
@@ -179,17 +182,21 @@
         pass = document.querySelector(".password"),
         form = document.querySelector(".form"),
         loadingImg = document.querySelector(".loadingImg"),
+        errorOrTrue = document.querySelector("#errorOrTrue"),
         signIn = document.querySelector("#login");
 
       signIn.addEventListener("click", (e) => {
         e.preventDefault();
         if (email.value !== "admin" || pass.value !== "pass123") {
-          alert("please correct your email or password!");
+          errorOrTrue.innerHTML = "username yoki Parol noto'g'ri!"
         } else {
+          errorOrTrue.innerHTML = "success!"
           location.href = "/pages/index.html";
         }
       });
 
+
+      // LOGIN CARD LOADING PLACEHOLDER
       setTimeout(() => {
         form.classList.toggle("hidden");
         setTimeout(() => {
