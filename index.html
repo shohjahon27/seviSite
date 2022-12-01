@@ -5,110 +5,180 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In/Up</title>
-<style>
-
-html {
-  background: #95a5a6;
-  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png);
-  font-family: 'Helvetica Neue', Arial, Sans-Serif;
-}
-html .login-wrap {
-  position: relative;
-  margin: 0 auto;
-  margin-top: 120px;
-  background: #ecf0f1;
-  width: 350px;
-  border-radius: 5px;
-  box-shadow: 3px 3px 10px #333;
-  padding: 15px;
-}
-html .login-wrap h2 {
-  text-align: center;
-  font-weight: 200;
-  font-size: 2em;
-  margin-top: 10px;
-  color: #34495e;
-}
-html .login-wrap .form {
-  padding-top: 20px;
-}
-html .login-wrap .form input[type="text"],
-html .login-wrap .form input[type="password"],
-html .login-wrap .form button {
-  width: 80%;
-  margin-left: 10%;
-  margin-bottom: 25px;
-  height: 40px;
-  border-radius: 5px;
-  outline: 0;
-  -moz-outline-style: none;
-}
-html .login-wrap .form input[type="text"],
-html .login-wrap .form input[type="password"] {
-  border: 1px solid #bbb;
-  padding: 0 0 0 10px;
-  font-size: 14px;
-}
-html .login-wrap .form input[type="text"]:focus,
-html .login-wrap .form input[type="password"]:focus {
-  border: 1px solid #3498db;
-}
-html .login-wrap .form a {
-  text-align: center;
-  font-size: 10px;
-  color: #3498db;
-}
-html .login-wrap .form a p {
-  padding-bottom: 10px;
-}
-html .login-wrap .form button {
-  background: #e74c3c;
-  border: none;
-  color: white;
-  font-size: 18px;
-  font-weight: 200;
-  cursor: pointer;
-  transition: box-shadow .4s ease;
-}
-html .login-wrap .form button:hover {
-  box-shadow: 1px 1px 5px #555;
-}
-html .login-wrap .form button:active {
-  box-shadow: 1px 1px 7px #222;
-}
-html .login-wrap:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: -webkit-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
-  background: -moz-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
-  height: 5px;
-  border-radius: 5px 5px 0 0;
-}
-
-</style>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <style>
+      html .login-wrap {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 120px;
+        background: #ecf0f1;
+        width: 350px;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px #333;
+        padding: 15px;
+      }
+      html .login-wrap h2 {
+        text-align: center;
+        font-weight: 200;
+        font-size: 2em;
+        margin-top: 10px;
+        color: #34495e;
+      }
+      html .login-wrap .form {
+        padding-top: 20px;
+      }
+      html .login-wrap .form input[type="text"],
+      html .login-wrap .form input[type="email"],
+      html .login-wrap .form input[type="password"],
+      html .login-wrap .form button {
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 25px;
+        height: 40px;
+        border-radius: 5px;
+        outline: 0;
+        -moz-outline-style: none;
+      }
+      html .login-wrap .form input[type="text"],
+      html .login-wrap .form input[type="email"],
+      html .login-wrap .form input[type="password"] {
+        border: 1px solid #bbb;
+        padding: 0 0 0 10px;
+        font-size: 14px;
+      }
+      html .login-wrap .form input[type="text"]:focus,
+      html .login-wrap .form input[type="email"]:focus,
+      html .login-wrap .form input[type="password"]:focus {
+        border: 1px solid #3498db;
+      }
+      html .login-wrap .form a {
+        text-align: center;
+        font-size: 10px;
+        color: #3498db;
+      }
+      html .login-wrap .form a p {
+        padding-bottom: 10px;
+      }
+      html .login-wrap .form button {
+        background: #e74c3c;
+        border: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 200;
+        cursor: pointer;
+        transition: box-shadow 0.4s ease;
+      }
+      html .login-wrap .form button:hover {
+        box-shadow: 1px 1px 5px #555;
+      }
+      html .login-wrap .form button:active {
+        box-shadow: 1px 1px 7px #222;
+      }
+      html .login-wrap:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: -webkit-linear-gradient(
+          left,
+          #27ae60 0%,
+          #27ae60 20%,
+          #8e44ad 20%,
+          #8e44ad 40%,
+          #3498db 40%,
+          #3498db 60%,
+          #e74c3c 60%,
+          #e74c3c 80%,
+          #f1c40f 80%,
+          #f1c40f 100%
+        );
+        background: -moz-linear-gradient(
+          left,
+          #27ae60 0%,
+          #27ae60 20%,
+          #8e44ad 20%,
+          #8e44ad 40%,
+          #3498db 40%,
+          #3498db 60%,
+          #e74c3c 60%,
+          #e74c3c 80%,
+          #f1c40f 80%,
+          #f1c40f 100%
+        );
+        height: 5px;
+        border-radius: 5px 5px 0 0;
+      }
+      span {
+        color: rgb(255, 0, 162);
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
+    <!-- Form-->
+    <div class="login-wrap">  
+      <div class="form hidden">
+        <h2 class="mb-4">Login</h2>
+        <input type="text" placeholder="Username" class="username" name="un" />
+        <input
+          type="password"
+          placeholder="Password"
+          class="password"
+          name="pw"
+        />
+        <button id="login">Sign In</button>
+        <a href="#">
+          <p>Don't have an account? <span>click here to Register</span></p></a
+        >
+      </div>
 
-<!-- Form-->
-<div class="login-wrap">
-  <h2>Login</h2>
-  
-  <div class="form">
+      <div class="card loadingImg" aria-hidden="true">
+        <!-- <img src="/img/green loading.jpg" class="card-img-top" alt="..." /> -->
+        <div class="card-body">
+          <p class="card-text opacity-50 placeholder-glow">
+            <span class="placeholder col-12 bg-black"></span>
+          </p>
+          <h1 class="card-title placeholder-glow">
+            <span class="placeholder col-12 bg-primary"></span>
+          </h1>
+          <h1 class="card-title placeholder-glow">
+            <span class="placeholder col-12 bg-primary"></span>
+          </h1>
+          <a
+            href="#"
+            tabindex="-1"
+            class="btn btn-danger disabled placeholder col-12"
+          ></a>
+          <p class="card-text placeholder-glow">
+            <span class="placeholder col-12 bg-info"></span>
+          </p>
+        </div>
+      </div>
+      </div>
+
+
+      <!-- <div class="form">
     <input type="text" placeholder="Username" class="username" name="un" />
+    <input type="email" placeholder="enter your email" class="email" name="un" />
     <input type="password" placeholder="Password" class="password" name="pw" />
-    <button id="login"> Sign In </button>
-    <a href="#"> <p> Don't have an account? Register </p></a>
-  </div>
-</div>
-
+    <button id="signUp"> Sign Up </button>
+    <a href="#"> <p>have an account? <span>click here to signIn</span> </p></a>
+  </div> -->
 
     <script type="text/javascript">
-
       const email = document.querySelector(".username"),
         pass = document.querySelector(".password"),
+        form = document.querySelector(".form"),
+        loadingImg = document.querySelector(".loadingImg"),
         signIn = document.querySelector("#login");
 
       signIn.addEventListener("click", (e) => {
@@ -119,6 +189,13 @@ html .login-wrap:after {
           location.href = "/pages/index.html";
         }
       });
+
+      setTimeout(() => {
+        form.classList.toggle("hidden");
+        setTimeout(() => {
+          loadingImg.style.display = "none";
+        })
+      }, 2000)
     </script>
   </body>
 </html>
