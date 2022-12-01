@@ -5,148 +5,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In/Up</title>
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+<style>
 
-      .login-page {
-        width: 360px;
-        padding: 8% 0 0;
-        margin: auto;
-      }
-      .form {
-        position: relative;
-        z-index: 1;
-        background: #ffffff;
-        max-width: 360px;
-        margin: 0 auto 100px;
-        padding: 45px;
-        text-align: center;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
-          0 5px 5px 0 rgba(0, 0, 0, 0.24);
-      }
-      .form input {
-        font-family: "Roboto", sans-serif;
-        outline: 0;
-        background: #f2f2f2;
-        width: 100%;
-        border: 0;
-        margin: 0 0 15px;
-        padding: 15px;
-        box-sizing: border-box;
-        font-size: 14px;
-      }
-      .form button {
-        font-family: "Roboto", sans-serif;
-        text-transform: uppercase;
-        outline: 0;
-        background: #4caf50;
-        width: 100%;
-        border: 0;
-        padding: 15px;
-        color: #ffffff;
-        font-size: 14px;
-        -webkit-transition: all 0.3 ease;
-        transition: all 0.3 ease;
-        cursor: pointer;
-      }
-      .form button:hover,
-      .form button:active,
-      .form button:focus {
-        background: #43a047;
-      }
-      .form .message {
-        margin: 15px 0 0;
-        color: #b3b3b3;
-        font-size: 12px;
-      }
-      .form .message a {
-        color: #4caf50;
-        text-decoration: none;
-      }
-      .form .register-form {
-        display: none;
-      }
-      .container {
-        position: relative;
-        z-index: 1;
-        max-width: 300px;
-        margin: 0 auto;
-      }
-      .container:before,
-      .container:after {
-        content: "";
-        display: block;
-        clear: both;
-      }
-      .container .info {
-        margin: 50px auto;
-        text-align: center;
-      }
-      .container .info h1 {
-        margin: 0 0 15px;
-        padding: 0;
-        font-size: 36px;
-        font-weight: 300;
-        color: #1a1a1a;
-      }
-      .container .info span {
-        color: #4d4d4d;
-        font-size: 12px;
-      }
-      .container .info span a {
-        color: #000000;
-        text-decoration: none;
-      }
-      .container .info span .fa {
-        color: #ef3b3a;
-      }
-      body {
-        background: #76b852; /* fallback for old browsers */
-        background: rgb(141, 194, 111);
-        background: linear-gradient(
-          90deg,
-          rgba(141, 194, 111, 1) 0%,
-          rgba(118, 184, 82, 1) 50%
-        );
-        font-family: "Roboto", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    </style>
+html {
+  background: #95a5a6;
+  background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png);
+  font-family: 'Helvetica Neue', Arial, Sans-Serif;
+}
+html .login-wrap {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 120px;
+  background: #ecf0f1;
+  width: 350px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #333;
+  padding: 15px;
+}
+html .login-wrap h2 {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2em;
+  margin-top: 10px;
+  color: #34495e;
+}
+html .login-wrap .form {
+  padding-top: 20px;
+}
+html .login-wrap .form input[type="text"],
+html .login-wrap .form input[type="password"],
+html .login-wrap .form button {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 25px;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+  -moz-outline-style: none;
+}
+html .login-wrap .form input[type="text"],
+html .login-wrap .form input[type="password"] {
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}
+html .login-wrap .form input[type="text"]:focus,
+html .login-wrap .form input[type="password"]:focus {
+  border: 1px solid #3498db;
+}
+html .login-wrap .form a {
+  text-align: center;
+  font-size: 10px;
+  color: #3498db;
+}
+html .login-wrap .form a p {
+  padding-bottom: 10px;
+}
+html .login-wrap .form button {
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 200;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
+}
+html .login-wrap .form button:hover {
+  box-shadow: 1px 1px 5px #555;
+}
+html .login-wrap .form button:active {
+  box-shadow: 1px 1px 7px #222;
+}
+html .login-wrap:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
+  background: -moz-linear-gradient(left, #27ae60 0%, #27ae60 20%, #8e44ad 20%, #8e44ad 40%, #3498db 40%, #3498db 60%, #e74c3c 60%, #e74c3c 80%, #f1c40f 80%, #f1c40f 100%);
+  height: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+</style>
   </head>
   <body>
-    <div class="login-page">
-      <div class="form">
-        <!-- <form class="register-form">
-          <input type="text" placeholder="name" />
-          <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
-          <button>create</button>
-          <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form> -->
-        <form class="login-form">
-          <input type="text" class="email" placeholder="username" />
-          <input type="password" class="password" placeholder="password" />
-          <button id="SignIn">login</button>
-          <p class="message">
-            Not registered? <a href="#">Create an account</a>
-          </p>
-        </form>
-      </div>
-    </div>
+
+<!-- Form-->
+<div class="login-wrap">
+  <h2>Login</h2>
+  
+  <div class="form">
+    <input type="text" placeholder="Username" class="username" name="un" />
+    <input type="password" placeholder="Password" class="password" name="pw" />
+    <button id="login"> Sign In </button>
+    <a href="#"> <p> Don't have an account? Register </p></a>
+  </div>
+</div>
+
+
     <script type="text/javascript">
-      const email = document.querySelector(".email"),
+
+      const email = document.querySelector(".username"),
         pass = document.querySelector(".password"),
-        signIn = document.querySelector(".login-form");
+        signIn = document.querySelector("#login");
 
-
-
-      signIn.addEventListener("submit", (e) => {
+      signIn.addEventListener("click", (e) => {
         e.preventDefault();
         if (email.value !== "admin" || pass.value !== "pass123") {
-            location.href = "/pages/index.html";
+          alert("please correct your email or password!");
         } else {
-            alert("please correct your email or password!");
+          location.href = "/pages/index.html";
         }
       });
     </script>
