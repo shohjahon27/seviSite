@@ -127,7 +127,6 @@
     <!-- Form-->
     <center class="">
       <p id="message"></p>
-      <p id="errorOrTrue"></p>
     </center>
     <div class="login-wrap">
       <div class="form hidden">
@@ -141,7 +140,10 @@
         />
         <button id="login">Kirish</button>
         <a class="register" href="/signup.html">
-          <p>Akkauntingiz yo'qmi? <span>Ro'yxatdan o'tish uchun bu yerni bosing</span></p></a
+          <p>
+            Akkauntingiz yo'qmi?
+            <span>Ro'yxatdan o'tish uchun bu yerni bosing</span>
+          </p></a
         >
       </div>
 
@@ -234,7 +236,7 @@
               Last_Login: dt,
             });
             message.innerHTML = "Foydalanuvchi ma'lumotlari to'g'ri!";
-            location.href = "/pages/index.html"
+            location.href = "/pages/index.html";
             // ...
           })
           .catch((error) => {
