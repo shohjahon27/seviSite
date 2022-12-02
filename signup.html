@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <!-- CSS only -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -52,7 +52,6 @@
         padding: 0 0 0 10px;
         font-size: 14px;
       }
-      html .login-wrap .form input[type="text"]:focus,
       html .login-wrap .form input[type="email"]:focus,
       html .login-wrap .form input[type="password"]:focus {
         border: 1px solid #3498db;
@@ -118,9 +117,9 @@
       span {
         color: rgb(255, 0, 162);
       }
-      .hidden {
+      /* .hidden {
         display: none;
-      }
+      } */
     </style>
   </head>
   <body oncontextmenu="return false">
@@ -130,22 +129,27 @@
     </center>
     <div class="login-wrap">
       <div class="form hidden">
-        <h2 class="mb-4">Login</h2>
-        <input type="email" placeholder="email" class="email" name="un" />
+        <h2 class="mb-4">Sign Up</h2>
+        <input type="text" placeholder="username" class="username" />
+        <input
+          type="email"
+          placeholder="email address"
+          class="email"
+          name="un"
+        />
         <input
           type="password"
           placeholder="Password"
           class="password"
           name="pw"
         />
-        <button id="login">Sign In</button>
-        <a class="register" href="/signup.html">
-          <p>Don't have an account? <span>click here to Register</span></p></a
+        <button id="signup">Sign Up</button>
+        <a class="register" href="/index.html">
+          <p>have an account? <span>click here to Log In</span></p></a
         >
       </div>
 
-      <div class="card loadingImg" aria-hidden="true">
-        <!-- <img src="/img/green loading.jpg" class="card-img-top" alt="..." /> -->
+      <!-- <div class="card loadingImg" aria-hidden="true">
         <div class="card-body">
           <p class="card-text opacity-50 placeholder-glow">
             <span class="placeholder col-12 bg-black"></span>
@@ -165,18 +169,28 @@
             <span class="placeholder col-12 bg-info"></span>
           </p>
         </div>
-      </div>
+      </div> -->
     </div>
 
-    <script type="text/javascript">
+    <!-- <script>
       window.addEventListener("DOMContentLoaded", () => {
-        const email = document.querySelector(".username"),
+        const email = document.querySelector(".email"),
           pass = document.querySelector(".password"),
           form = document.querySelector(".form"),
           loadingImg = document.querySelector(".loadingImg"),
           errorOrTrue = document.querySelector("#errorOrTrue"),
           register = document.querySelector(".register"),
-          signIn = document.querySelector("#login");
+          signUp = document.querySelector("#signup");
+
+        // signUp.addEventListener("click", (e) => {
+        //   e.preventDefault();
+        //   if (email.value !== "admin" || pass.value !== "pass123") {
+        //     errorOrTrue.innerHTML = "username yoki Parol noto'g'ri!";
+        //   } else {
+        //     errorOrTrue.innerHTML = "success!";
+        //     location.href = "/pages/index.html";
+        //   }
+        // });
 
         // LOGIN CARD LOADING PLACEHOLDER
         setTimeout(() => {
@@ -186,7 +200,9 @@
           });
         }, 3000);
       });
-    </script>
+    </script> -->
+
+    <!-- firebase integration -->
 
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
@@ -194,11 +210,10 @@
         getDatabase,
         set,
         ref,
-        update,
       } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
       import {
         getAuth,
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
       // TODO: Add SDKs for Firebase products that you want to use
 
@@ -218,29 +233,32 @@
 
       const auth = getAuth();
 
-      //   ---------------------LOGIN USER TO FIREBASE--------------------
-      login.addEventListener("click", (e) => {
+      //   ---------------------REGISTER USER TO FIREBASE--------------------
+      signup.addEventListener("click", (e) => {
+        var username = document.querySelector(".username").value;
         var email = document.querySelector(".email").value;
         var password = document.querySelector(".password").value;
 
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
 
-            const dt = new Date();
-            update(ref(db, "users/" + user.uid), {
-              Last_Login: dt,
+            set(ref(db, "users/" + user.uid), {
+              username: username,
+              email: email,
+              password: password,
             });
-            alert("user is now signed in");
-            location.href = "/pages/index.html"
+            alert("user is now created");
             // ...
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             alert(errorMessage);
+            // ..
           });
+        e.target.reset();
       });
 
       // ---------------------REFERENCES --------------------
@@ -251,5 +269,6 @@
       //   register = document.querySelector(".register"),
       //   signUp = document.querySelector("#signup");
     </script>
+
   </body>
 </html>
