@@ -125,7 +125,7 @@
   <body oncontextmenu="return false">
     <!-- Form-->
     <center class="">
-      <p id="errorOrTrue"></p>
+      <p id="message"></p>
     </center>
     <div class="login-wrap">
       <div class="form hidden">
@@ -143,9 +143,9 @@
           class="password"
           name="pw"
         />
-        <button id="signup">Sign Up</button>
+        <button id="signup">Ro'yxatdan o'tish</button>
         <a class="register" href="/index.html">
-          <p>have an account? <span>click here to Log In</span></p></a
+          <p>Akkauntingiz bormi? <span>Kirish uchun bu yerni bosing</span></p></a
         >
       </div>
 
@@ -249,16 +249,15 @@
               email: email,
               password: password,
             });
-            alert("user is now created");
+            message.innerHTML = "Foydalanuvchi  muvaffaqiyatli yaratildi va siz hozir email va parolingizdan foydalangan holda websaytga kirishingiz mumkin";
             // ...
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage);
+            message.innerHTML = "Foydalanuvchi oldin ro'yxatdan o'tgan!";
             // ..
           });
-        e.target.reset();
       });
 
       // ---------------------REFERENCES --------------------

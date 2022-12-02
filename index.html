@@ -126,6 +126,7 @@
   <body oncontextmenu="return false">
     <!-- Form-->
     <center class="">
+      <p id="message"></p>
       <p id="errorOrTrue"></p>
     </center>
     <div class="login-wrap">
@@ -138,9 +139,9 @@
           class="password"
           name="pw"
         />
-        <button id="login">Sign In</button>
+        <button id="login">Kirish</button>
         <a class="register" href="/signup.html">
-          <p>Don't have an account? <span>click here to Register</span></p></a
+          <p>Akkauntingiz yo'qmi? <span>Ro'yxatdan o'tish uchun bu yerni bosing</span></p></a
         >
       </div>
 
@@ -232,14 +233,14 @@
             update(ref(db, "users/" + user.uid), {
               Last_Login: dt,
             });
-            alert("user is now signed in");
+            message.innerHTML = "Foydalanuvchi ma'lumotlari to'g'ri!";
             location.href = "/pages/index.html"
             // ...
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage);
+            message.innerHTML = "Foydalanuvchi ma'lumotlari noto'g'ri";
           });
       });
 
