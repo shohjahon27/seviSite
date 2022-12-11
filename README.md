@@ -1,2 +1,2 @@
 # seviSite
-link: https://sevinch.vercel.app
+link: https://tib.vercel.app/
